@@ -173,7 +173,7 @@
 			    i,
 			    instr;
 
-			for (i = 0; i < instructions.length; i++) {
+			for (i = 0; instructions && i < instructions.length; i++) {
 				instr = instructions[i];
 				result.push({
 					type: signToType[instr.sign],
@@ -197,7 +197,7 @@
 			wpIndices.push(0);
 			wps.push(new L.Routing.Waypoint(coordinates[0], waypoints[0].name));
 
-			for (i = 0; i < instructions.length; i++) {
+			for (i = 0; i < instructions && instructions.length; i++) {
 				if (instructions[i].sign === 5) { // VIA_REACHED
 					idx = instructions[i].interval[0];
 					wpIndices.push(idx);
