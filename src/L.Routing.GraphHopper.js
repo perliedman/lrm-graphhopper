@@ -137,7 +137,10 @@
 
 		buildRouteUrl: function(waypoints, options) {
 			var computeInstructions =
-				!(options && options.geometryOnly),
+				/* Instructions are always needed, 
+				   since we do not have waypoint indices otherwise */
+				true,
+				//!(options && options.geometryOnly),
 				locs = [],
 				i,
 				baseUrl;
@@ -197,7 +200,7 @@
 			wpIndices.push(0);
 			wps.push(new L.Routing.Waypoint(coordinates[0], waypoints[0].name));
 
-			for (i = 0; i < instructions && instructions.length; i++) {
+			for (i = 0; instructions && i < instructions.length; i++) {
 				if (instructions[i].sign === 5) { // VIA_REACHED
 					idx = instructions[i].interval[0];
 					wpIndices.push(idx);
