@@ -17,8 +17,6 @@ To use with for example Browserify:
 npm install --save lrm-graphhopper
 ```
 
-There's not pre-built files yet, but I will get to it.
-
 ## Using
 
 There's a single class exported by this module, `L.Routing.GraphHopper`. It implements the [`IRouter`](http://www.liedman.net/leaflet-routing-machine/api/#irouter) interface. Use it to replace Leaflet Routing Machine's default OSRM router implementation:
