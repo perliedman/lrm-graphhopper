@@ -59,9 +59,18 @@
 						data = JSON.parse(resp.responseText);
 						this._routeDone(data, wps, callback, context);
 					} else {
+						var finalResponse;
+						var responseText = err && err.responseText;
+						try {
+							finalResponse = JSON.parse(responseText);
+						} catch (e) {
+							finalResponse = responseText;
+						}
+
 						callback.call(context || callback, {
 							status: -1,
-							message: 'HTTP request failed: ' + err
+							message: 'HTTP request failed: ' + err,
+							response: finalResponse
 						});
 					}
 				}
