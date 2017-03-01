@@ -1,6 +1,8 @@
 Leaflet Routing Machine / GraphHopper
 =====================================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/perliedman/lrm-graphhopper.svg)](https://greenkeeper.io/)
+
 [![npm version](https://img.shields.io/npm/v/lrm-graphhopper.svg)](https://www.npmjs.com/package/lrm-graphhopper)
 
 Extends [Leaflet Routing Machine](https://github.com/perliedman/leaflet-routing-machine) with support for [GraphHopper](https://graphhopper.com/).
