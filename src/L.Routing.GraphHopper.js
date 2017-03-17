@@ -109,6 +109,7 @@
 					summary: {
 						totalDistance: path.distance,
 						totalTime: path.time / 1000,
+						totalAscend: path.ascend,
 					},
 					inputWaypoints: inputWaypoints,
 					actualWaypoints: mappedWaypoints.waypoints,
