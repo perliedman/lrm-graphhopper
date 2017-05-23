@@ -7,7 +7,7 @@
 
 	L.Routing = L.Routing || {};
 
-	L.Routing.GraphHopper = L.Class.extend({
+	L.Routing.GraphHopper = L.Evented.extend({
 		options: {
 			serviceUrl: 'https://graphhopper.com/api/1/route',
 			timeout: 30 * 1000,
@@ -54,6 +54,14 @@
 				var data;
 
 				clearTimeout(timer);
+				var fired = err ? err : resp;
+				this.fire("response", {
+					status: fired.status,
+					limit: Number(fired.getResponseHeader("X-RateLimit-Limit")),
+					remaining: Number(fired.getResponseHeader("X-RateLimit-Remaining")),
+					reset: Number(fired.getResponseHeader("X-RateLimit-Reset")),
+					credits: Number(fired.getResponseHeader("X-RateLimit-Credits"))
+				});
 				if (!timedOut) {
 					if (!err) {
 						data = JSON.parse(resp.responseText);

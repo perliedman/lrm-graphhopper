@@ -32,3 +32,18 @@ L.Routing.control({
 ```
 
 Note that you will need to pass a valid GraphHopper API key to the constructor.
+
+To be keep track of the GraphHopper credits consumption, the application may listen to the `response` event fired by the Router object. This event holds the values from [GraphHopper's response HTTP headers](https://graphhopper.com/api/1/docs/#http-headers):
+* `status`: The HTTP status code
+* `limit`: The `X-RateLimit-Limit` header
+* `remaining`: The `X-RateLimit-Remaining` header
+* `reset`: The `X-RateLimit-Reset` header
+* `credits`: The `X-RateLimit-Credits` header
+
+```javascript
+var router = myRoutingControl.getRouter();
+router.on('response',function(e){
+  console.log('This routing request consumed ' + e.credits + ' credit(s)');
+  console.log('You have ' + e.remaining + ' left');
+});
+```
