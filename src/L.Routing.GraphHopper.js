@@ -198,6 +198,7 @@
 				instr = instructions[i];
 				result.push({
 					type: signToType[instr.sign],
+					modifier: signToType[instr.sign],
 					text: instr.text,
 					distance: instr.distance,
 					time: instr.time / 1000,
