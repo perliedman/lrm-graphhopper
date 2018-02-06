@@ -95,7 +95,7 @@
 			    path;
 
 			context = context || callback;
-			if (response.info.errors && response.info.errors.length) {
+			if (response.info && response.info.errors && response.info.errors.length) {
 				callback.call(context, {
 					// TODO: include all errors
 					status: response.info.errors[0].details,
@@ -155,14 +155,14 @@
 
 		buildRouteUrl: function(waypoints, options) {
 			var computeInstructions =
-				/* Instructions are always needed, 
+				/* Instructions are always needed,
 				   since we do not have waypoint indices otherwise */
 				true,
 				//!(options && options.geometryOnly),
 				locs = [],
 				i,
 				baseUrl;
-			
+
 			for (i = 0; i < waypoints.length; i++) {
 				locs.push('point=' + waypoints[i].latLng.lat + ',' + waypoints[i].latLng.lng);
 			}
