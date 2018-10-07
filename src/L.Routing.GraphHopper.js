@@ -192,8 +192,8 @@
 				},
 				result = [],
 				type,
-			  i,
-			  instr;
+				i,
+				instr;
 
 			for (i = 0; instructions && i < instructions.length; i++) {
 				instr = instructions[i];
