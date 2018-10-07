@@ -191,12 +191,13 @@
 					6: 'Roundabout'
 				},
 				result = [],
-				type = signToType[instr.sign],
-			    i,
-			    instr;
+				type,
+			  i,
+			  instr;
 
 			for (i = 0; instructions && i < instructions.length; i++) {
 				instr = instructions[i];
+				type = signToType[instr.sign];
 				result.push({
 					type: type,
 					modifier: type,
