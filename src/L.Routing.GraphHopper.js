@@ -179,6 +179,7 @@
 
 		_convertInstructions: function(instructions) {
 			var signToType = {
+					'-7': 'SlightLeft',
 					'-3': 'SharpLeft',
 					'-2': 'Left',
 					'-1': 'SlightLeft',
@@ -188,7 +189,8 @@
 					3: 'SharpRight',
 					4: 'DestinationReached',
 					5: 'WaypointReached',
-					6: 'Roundabout'
+					6: 'Roundabout',
+					7: 'SlightRight'
 				},
 				result = [],
 				type,
@@ -197,7 +199,11 @@
 
 			for (i = 0; instructions && i < instructions.length; i++) {
 				instr = instructions[i];
-				type = signToType[instr.sign];
+				if (i === 0) {
+					type = 'Head';
+				} else {
+					type = signToType[instr.sign];
+				}
 				result.push({
 					type: type,
 					modifier: type,
