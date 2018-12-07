@@ -107,6 +107,13 @@
 			for (i = 0; i < response.paths.length; i++) {
 				path = response.paths[i];
 				coordinates = this._decodePolyline(path.points);
+				if (path.points_order) {
+					var tempWaypoints = [];
+					for (i = 0; i < path.points_order.length; i++) {
+						tempWaypoints.push(inputWaypoints[path.points_order[i]]);
+					}
+					inputWaypoints = tempWaypoints;
+				}
 				mappedWaypoints =
 					this._mapWaypointIndices(inputWaypoints, path.instructions, coordinates);
 
