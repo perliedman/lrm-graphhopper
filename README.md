@@ -1,6 +1,10 @@
 Leaflet Routing Machine / GraphHopper
 =====================================
 
+## Maintainers Wanted
+
+*I no longer use this module, and have not done so in a long while. If you use it, please consider taking over maintenance of this module (it's not a lot of work). Because of this situation, I have very limited time and expertise to answer any questions regarding this module*
+
 [![npm version](https://img.shields.io/npm/v/lrm-graphhopper.svg)](https://www.npmjs.com/package/lrm-graphhopper)
 
 Extends [Leaflet Routing Machine](https://github.com/perliedman/leaflet-routing-machine) with support for [GraphHopper](https://graphhopper.com/).
